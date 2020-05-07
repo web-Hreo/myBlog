@@ -2,11 +2,13 @@
   <div id="app">
     <my-head></my-head>
     <router-view />
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
 import myHead from "./components/Header";
+import myFooter from "./components/footer";
 export default {
   data() {
     return {
@@ -14,7 +16,8 @@ export default {
     };
   },
   components: {
-    myHead
+    myHead,
+    myFooter
   }
 };
 </script>

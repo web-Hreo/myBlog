@@ -101,8 +101,18 @@
         <!-- 热度榜 -->
         <div class="info_rankingList background">
           <p class="info_title">热度榜</p>
-          <div class="rankingList_item">
-            <p class="item_title">测试头部测试头部测试头部</p>
+          <div class="rankingList_item" v-for="(item, index) in [1,2,3]" :key="index">
+            <a href>
+              <p class="item_title">小程序插件</p>
+              <div class="item_text">
+                <div class="item_img">
+                  <img src="https://img.cdn.lsyblog.com/0a6ce05fe0c69d1c2b7514395e7d61b7.jpg" alt />
+                </div>
+                <div class="item_desc">
+                  <p>一款超好用的插件——WxParse，在解析内容的时候就需要将内容中的HTML标签转换成微信小程序所支持</p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
         <!-- 友情链接 -->
@@ -111,13 +121,14 @@
             友情链接
             <a href>申请友链</a>
           </p>
-          <p>
-            本站信息如下：
-            <br />网站名称：花未央
-            <br />网站链接:https://http://localhost:8080/
-            <br />注：申请友链之前，请务必先将本站添置友链，花未央收到后会立马处理，处理结果会以邮件形式通知您~
-            <br />
-          </p>
+          <div class="friendChain_website">
+            <p>本站信息如下：</p>
+            <p>网站名称：花未央</p>
+            <p>网站链接:https://http://localhost:8080/</p>
+            <p>
+              <span style="color:red">注：</span> 申请友链之前，请务必先将本站添置友链，花未央收到后会立马处理，处理结果会以邮件形式通知您~
+            </p>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -133,15 +144,16 @@ export default {
         { id: 1, label: "HTML(5)", path: "#" },
         { id: 2, label: "CSS(3)", path: "#" },
         { id: 3, label: "JavaScript", path: "#" },
-        { id: 4, label: "jQuery", path: "#" },
-        { id: 5, label: "UI框架", path: "#" },
-        { id: 6, label: "VUE", path: "#" },
-        { id: 7, label: "React", path: "#" },
-        { id: 8, label: "Angular", path: "#" },
-        { id: 9, label: "MongoDB", path: "#" },
-        { id: 10, label: "Webpack", path: "#" },
-        { id: 11, label: "git", path: "#" },
-        { id: 12, label: "Node", path: "#" }
+        { id: 4, label: "ES6", path: "#" },
+        { id: 5, label: "jQuery", path: "#" },
+        { id: 6, label: "UI框架", path: "#" },
+        { id: 7, label: "VUE", path: "#" },
+        { id: 8, label: "React", path: "#" },
+        { id: 9, label: "Angular", path: "#" },
+        { id: 10, label: "Node", path: "#" },
+        { id: 11, label: "MongoDB", path: "#" },
+        { id: 12, label: "Webpack", path: "#" },
+        { id: 13, label: "git", path: "#" }
       ]
     };
   },
@@ -165,6 +177,7 @@ export default {
   min-width: 320px;
   margin: 90px auto 0 auto;
   padding-top: 20px;
+  overflow: hidden;
 
   .home_cont {
     height: 100%;
@@ -376,6 +389,56 @@ export default {
         width: 100%;
         height: 100%;
         color: #fff;
+      }
+    }
+  }
+}
+.info_rankingList {
+  .rankingList_item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    a {
+      color: #555;
+      &:hover {
+        color: #000;
+      }
+      &:hover img {
+        transform: scale(1.2);
+      }
+    }
+    .item_title {
+      padding: 5px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .item_text {
+      width: 100%;
+      .item_img {
+        overflow: hidden;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 160px;
+          transition: all ease 0.6s;
+        }
+      }
+      .item_desc {
+        margin: 5px;
+        font-size: 14px;
+        text-indent: 2em;
+      }
+    }
+  }
+}
+.info_friendChain {
+  .friendChain_website {
+    padding: 5px 0 10px 0;
+    p {
+      padding: 2px 0;
+      font-size: 14px;
+      color: #555;
+      &:nth-last-child(1) {
+        font-weight: 600;
       }
     }
   }
