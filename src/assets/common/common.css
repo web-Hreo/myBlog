@@ -1,0 +1,23 @@
+*{ margin:0; padding:0;}
+address,cite,dfn,em,var, i {font-style:normal;}
+#app { font: 16px "微软雅黑", Arial, Helvetica, sans-serif; color: #555; background: #f7f7f7;  }
+table { border-collapse:collapse; border-spacing:0; }
+h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
+button,input,select,textarea{font-size:100%;}
+fieldset{border:0;display: block;}
+/*@img*/
+img { -webkit-touch-callout: none;border:0;display: block;}
+/*@a*/
+a{color:#333;text-decoration: none;-webkit-touch-callout: none;-webkit-user-select: none;}
+a,a:active,a:focus,a:hover,a:visited {text-decoration: none}
+/*@input*/
+input[type=password],
+input[type=text],
+textarea {resize: none; outline: 0; -webkit-appearance: none; white-space: pre-wrap;  word-wrap: break-word; background: #fff}
+ul, ol { list-style: none; }
+:focus{ outline:none;}
+/*@placeholder css*/
+::-moz-placeholder{ font-family: "Microsoft YaHei"}              
+::-webkit-input-placeholder{ font-family: "Microsoft YaHei"}    
+::-ms-input-placeholder{ font-family: "Microsoft YaHei"}
+

@@ -2,64 +2,14 @@
   <div id="home">
     <el-row :gutter="20" class="home_cont">
       <!-- 左侧文章item -->
-      <el-col :span="17" class="home_cont_blog">
-        <!-- 文章盒子 -->
-        <div class="blog_item" v-for="(item, index) in [1, 2, 3, 4,5,6,7,8]" :key="index">
-          <el-row>
-            <!--文章图片  -->
-            <el-col :span="8">
-              <div class="text_img">
-                <a href title="centos系统漏洞修复：yum安装包工具">
-                  <img
-                    src="https://www.yxiaowei.com/Public/upload/article_banner/2019/12-30/5e09c45564d98.jpg"
-                    alt="centos系统漏洞修复：yum安装包工具"
-                  />
-                </a>
-              </div>
-            </el-col>
-            <!-- 文章介绍 -->
-            <el-col :span="16">
-              <div class="blog_text">
-                <!-- 标题 -->
-                <h3 class="blogtitle">
-                  <a href>Ubuntu或Debian系统的漏洞修复：apt安装......</a>
-                </h3>
-                <!-- 部分内容截取 -->
-                <p>Ubuntu 及 Debian 系统的软件漏洞怎么修复？其实很简单，只需要链接ssh，然后用apt安装包管理工具进行软件升级.</p>
-              </div>
-            </el-col>
-          </el-row>
-          <el-row>
-            <el-col :span="16">
-              <div class="blog_config">
-                <!-- 标签链接 -->
-                <div class="config_link config_item">
-                  <i class="el-icon-link"></i>
-                  <a href>VUE</a>
-                </div>
-                <!-- 时间 -->
-                <div class="config_time config_item">
-                  <i class="el-icon-time"></i>2020-05-07
-                </div>
-                <!-- 浏览量 -->
-                <div class="config_viewnum config_item">
-                  <i class="el-icon-view"></i>
-                  浏览 (
-                  <a href>570</a> )
-                </div>
-              </div>
-            </el-col>
-            <el-col :span="8">
-              <div class="blog_read">
-                <a href>阅读原文</a>
-              </div>
-            </el-col>
-          </el-row>
-        </div>
+      <el-col :xs="24" :sm="24" :md="17" :lg="17" class="home_cont_blog">
+        <transition>
+          <router-view>1</router-view>
+        </transition>
       </el-col>
 
       <!-- 右侧配置 -->
-      <el-col :span="7" class="home_cont_info">
+      <el-col :span="7" class="home_cont_info hidden-sm-and-down">
         <!-- 个人信息 -->
         <div class="info_my background">
           <div class="my_background"></div>
@@ -72,22 +22,24 @@
           <div class="my_information">
             <p>Hhua | 花未央</p>
             <p>web前端开发工程师</p>
-            <p>ngpeipao9977590@163.com</p>
+            <p>邮箱：ngpeipao9977590@163.com</p>
+            <p>微信(添加备注来源)：17779168734</p>
             <p>爱代码、爱吉他、爱民谣的97伪文艺程序猿一枚，分享一些个人开发之路上踩的各种坑，只为后来人更好的行走。</p>
           </div>
         </div>
         <!-- 天气 -->
-        <div class="background info_weather">
-          <p>您的位置 -> 江西南昌</p>
-          <p>05月07日 周四 农历四月十五</p>
+        <div class="background info_weather" v-if="Weather">
+          <p>您的位置 -> {{Weather.address}}</p>
+          <!-- {{Weather.basic.update.loc}} -->
+          <p>{{Weather.time}}</p>
           <p>
             <i class="el-icon-sunrise"></i>
           </p>
-          <p>实时气温：25°C - 阴</p>
-          <p>24~26°C</p>
-          <p>小雨转多云</p>
-          <p>东风微风</p>
-          <p>36 优</p>
+          <p>实时气温：{{Weather.tmp}}°C</p>
+          <p>{{Weather.mintmp}}°C~{{Weather.maxtmp}}°C</p>
+          <p>{{Weather.txt}}</p>
+          <p>{{Weather.dir}}</p>
+          <p>{{Weather.aqi}} {{Weather.qlty}}</p>
         </div>
         <!-- 标签 -->
         <div class="info_label background">
@@ -101,7 +53,7 @@
         <!-- 热度榜 -->
         <div class="info_rankingList background">
           <p class="info_title">热度榜</p>
-          <div class="rankingList_item" v-for="(item, index) in [1,2,3]" :key="index">
+          <div class="rankingList_item" v-for="(item, index) in [1,2]" :key="index">
             <a href>
               <p class="item_title">小程序插件</p>
               <div class="item_text">
@@ -136,6 +88,7 @@
 </template>
 
 <script>
+import { apiAddress, weather } from "../axios/api"; //引入api
 export default {
   name: "",
   data() {
@@ -154,10 +107,36 @@ export default {
         { id: 11, label: "MongoDB", path: "#" },
         { id: 12, label: "Webpack", path: "#" },
         { id: 13, label: "git", path: "#" }
-      ]
+      ],
+      userinfo: [],
+      Weather: []
     };
   },
+  created() {
+    this.ongetdata();
+  },
   methods: {
+    //在onLaod内调用所有方法
+    async ongetdata() {
+      try {
+        let { data } = await apiAddress();
+        let weatherData = await weather(data.ip);
+        weatherData = weatherData.result.HeWeather5[0];
+        this.Weather = {
+          address: data.mainInfo, //地址
+          time: weatherData.basic.update.loc, //当前刷新时间
+          tmp: weatherData.now.tmp, //当前气温
+          maxtmp: weatherData.daily_forecast[0].tmp.max, //当前气温
+          mintmp: weatherData.daily_forecast[0].tmp.min, //当前气温
+          txt: weatherData.now.cond.txt, //天气状况
+          dir: weatherData.now.wind.dir, //风向
+          aqi: weatherData.aqi.city.aqi, //aqi指数
+          qlty: weatherData.aqi.city.qlty //空气质量等级
+        };
+      } catch (err) {
+        console.log(err);
+      }
+    },
     randomRgb(item) {
       let R = Math.floor(Math.random() * 255);
       let G = Math.floor(Math.random() * 255);
@@ -175,7 +154,7 @@ export default {
 #home {
   max-width: 1200px;
   min-width: 320px;
-  margin: 90px auto 0 auto;
+  margin: 60px auto 0 auto;
   padding-top: 20px;
   overflow: hidden;
 
@@ -269,6 +248,22 @@ export default {
       }
     }
   }
+  .blog_readbtn {
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    background: #f2f2f2;
+    padding: 7px 0;
+    margin-top: 10px;
+    clear: both;
+    a {
+      font-size: 13px;
+      color: green;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 .home_cont_info {
   .background {
@@ -332,11 +327,15 @@ export default {
       }
       &:nth-child(2) {
         color: #1abc9c;
+        padding: 5px 0;
       }
-      &:nth-child(3) {
+      &:nth-child(3),
+      &:nth-child(4) {
+        font-size: 14px;
+        padding: 2px 0;
         color: #555;
       }
-      &:nth-child(4) {
+      &:nth-child(5) {
         padding: 5px;
         font-size: 14px;
         text-align: left;
@@ -426,6 +425,13 @@ export default {
         margin: 5px;
         font-size: 14px;
         text-indent: 2em;
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
       }
     }
   }
@@ -442,5 +448,15 @@ export default {
       }
     }
   }
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0.5;
+  transform: translateX(-100px);
+}
+
+.v-enter-active,
+.v-enter-leave {
+  transition: all, 0.2s ease;
 }
 </style>

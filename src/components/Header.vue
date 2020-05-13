@@ -12,21 +12,19 @@
         <el-col :span="16" class="head_nav">
           <div class="grid-content bg-purple">
             <ul class="hidden-xs-only">
-              <li v-for="item in routerList" :key="item.id" @click="doActive(item.id)">
-                <router-link to :class="{active:item.id==num}">{{item.name}}</router-link>
+              <li v-for="item in routerList" :key="item.id">
+                <router-link :to="item.path" :class="{active:$route.path==item.path}">{{item.name}}</router-link>
               </li>
             </ul>
-            <el-dropdown>
+            <el-dropdown trigger="click">
               <span class="el-dropdown-link hidden-sm-and-up">
-                下拉菜单
+                {{routername}}
                 <i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item
-                  command="a"
-                  v-for="item in routerList"
-                  :key="item.id"
-                >{{item.name}}</el-dropdown-item>
+                <el-dropdown-item v-for="item in routerList" :key="item.id" :command="item.id">
+                  <router-link :to="item.path">{{item.name}}</router-link>
+                </el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </div>
@@ -42,23 +40,22 @@ export default {
   data() {
     return {
       routerList: [
-        { name: "首页", id: 1 },
-        { name: "学无止境", id: 2 },
-        { name: "慢生活", id: 3 },
-        { name: "热度榜", id: 4 },
-        { name: "留言板", id: 5 },
-        { name: "零食柜", id: 6 },
-        { name: "关于我", id: 7 }
-      ],
-      num: 1 //初始化点击出现下边框
+        { name: "首页", id: 1, path: "/index" },
+        { name: "学无止境", id: 2, path: "/style" },
+        { name: "慢生活", id: 3, path: "#" },
+        { name: "热度榜", id: 4, path: "#" },
+        { name: "留言板", id: 5, path: "#" },
+        { name: "零食柜", id: 6, path: "#" },
+        { name: "关于我", id: 7, path: "#" }
+      ]
     };
   },
-  methods: {
-    handleCommand(command) {
-      this.$message("click on item " + command);
-    },
-    doActive(index) {
-      this.num = index;
+  methods: {},
+  computed: {
+    routername() {
+      let arr = this.routerList.filter(v => v.path == this.$route.path);
+      if (arr.length === 0) return "首页";
+      return arr[0].name;
     }
   }
 };
@@ -137,7 +134,11 @@ export default {
 .el-icon-arrow-down {
   font-size: 12px;
 }
-// .el-dropdown-menu {
-//   top: 0;
-// }
+a {
+  color: #555;
+  display: inline-block;
+  padding: 0 5px;
+  width: 100%;
+  height: 100%;
+}
 </style>
