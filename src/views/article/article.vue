@@ -7,9 +7,9 @@
 -->
 <template>
   <div id='article'>
-    <div class="def_card mt-15">
+    <div class="article-box mt-15">
       <el-row >
-        <el-col :span="6">
+        <el-col :span="6" class="article-menu">
           <el-menu
             :default-active="menuActive"
             @select="select"
@@ -138,9 +138,21 @@ export default {
 <style lang='less' scoped>
   #article{
     width: 100%;
+    padding-bottom: 20px;
+    .article-box{
+
+    }
+    .article-menu{
+      background-color: #fff;
+      margin-right: 10px;
+      .el-menu-vertical-demo{
+        border-right: none;
+      }
+    }
     .article-cont{
       box-sizing: border-box;
       padding: 10px;
+      background-color: #fff;
       .el-tag{
         cursor: pointer;
       }
@@ -161,6 +173,10 @@ export default {
         &:hover{
           color: #409EFF;
           background-color: rgba(0, 0, 0, .1);
+        }
+        &:nth-child(1),
+        &:nth-child(2){
+          margin-top: 0;
         }
       }
     }
