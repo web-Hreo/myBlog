@@ -5,8 +5,9 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect:'/index', meta: { title: "何华前端博客_首页" }, },
-  { path: '/index', component: () => import('../views/index/index'), meta: { title: "何华前端博客_首页" }, },
-  { path: '/style', component: () => import('../views/style/style'), meta: { title: "何华前端博客_学无止境" }, }
+  { path: '/index', component: () => import('@/views/index/index'), meta: { title: "何华前端博客_首页" }, },
+  { path: '/style', component: () => import('@/views/style/style'), meta: { title: "何华前端博客_学无止境" }, },
+  { path: '/article', component: () => import('@/views/article/article'), meta: { title: "何华前端博客_学无止境" }, }
 ]
 
 const router = new VueRouter({

@@ -42,12 +42,12 @@ export default {
       routerList: [
         { name: "首页", id: 1, path: "/index" },
         { name: "学无止境", id: 2, path: "/style" },
-        { name: "慢生活", id: 3, path: "#" },
-        { name: "热度榜", id: 4, path: "#" },
-        { name: "留言板", id: 5, path: "#" },
-        { name: "零食柜", id: 6, path: "#" },
-        { name: "关于我", id: 7, path: "#" }
-      ]
+        { name: "文章档案", id: 3, path: "/article" },
+        { name: "学习导航", id: 4, path: "#" },
+        { name: "热度榜", id: 5, path: "#" },
+        { name: "我的朋友", id: 6, path: "#" },
+        { name: "关于", id: 7, path: "#" }
+      ],
     };
   },
   methods: {},
@@ -57,7 +57,7 @@ export default {
       if (arr.length === 0) return "首页";
       return arr[0].name;
     }
-  }
+  },
 };
 </script>
 
