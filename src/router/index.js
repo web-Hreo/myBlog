@@ -4,8 +4,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/index', component: () => import('../views/index.vue'), meta: { title: "花未央首页" }, },
-  { path: '/style', component: () => import('../views/Style.vue'), meta: { title: "花未央-学无止境" }, }
+  { path: '/', redirect:'/index', meta: { title: "何华前端博客_首页" }, },
+  { path: '/index', component: () => import('../views/index/index'), meta: { title: "何华前端博客_首页" }, },
+  { path: '/style', component: () => import('../views/style/style'), meta: { title: "何华前端博客_学无止境" }, }
 ]
 
 const router = new VueRouter({
