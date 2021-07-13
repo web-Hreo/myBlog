@@ -9,6 +9,7 @@ const routes = [
   { path: '/style', component: () => import('@/views/style/style'), meta: { title: "何华前端博客_学无止境" }, },
   { path: '/article', component: () => import('@/views/article/article'), meta: { title: "何华前端博客_学无止境" }, },
   { path: '/hot', component: () => import('@/views/hot/index'), meta: { title: "何华前端博客_热度榜" }, },
+  { path: '/mood', component: () => import('@/views/mood/index'), meta: { title: "何华前端博客_每日心情" }, },
   { path: '/navigation', component: () => import('@/views/navigation/index'), meta: { title: "何华前端博客_学习导航" }, },
 ]
 

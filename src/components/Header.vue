@@ -45,7 +45,7 @@ export default {
         { name: "文章档案", id: 3, path: "/article" },
         { name: "学习导航", id: 4, path: "/navigation" },
         { name: "热度榜", id: 5, path: "/hot" },
-        { name: "每日心情", id: 2, path: "#" },
+        { name: "每日心情", id: 2, path: "/mood" },
         { name: "我的朋友", id: 6, path: "#" },
         { name: "关于", id: 7, path: "#" }
       ],
