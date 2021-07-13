@@ -42,7 +42,6 @@ export default {
   },
   watch:{
     $route(val){
-      console.log(val);
         if(val.path==='/navigation' || val.path==='/article'){
           this.isAslideShow  = false
         }else{

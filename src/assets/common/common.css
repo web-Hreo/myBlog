@@ -1,4 +1,5 @@
 *{ margin:0; padding:0;}
+html,body{ cursor: url('../mouse.png'),auto;}
 address,cite,dfn,em,var, i {font-style:normal;}
 #app { font: 16px "微软雅黑", Arial, Helvetica, sans-serif; color: #555; background: #f7f7f7;  }
 table { border-collapse:collapse; border-spacing:0; }
@@ -8,7 +9,7 @@ fieldset{border:0;display: block;}
 /*@img*/
 img { -webkit-touch-callout: none;border:0;display: block;}
 /*@a*/
-a{color:#333;text-decoration: none;-webkit-touch-callout: none;-webkit-user-select: none;}
+a{color:#333;text-decoration: none;-webkit-touch-callout: none;-webkit-user-select: none; cursor: url('../mouse.png'),auto;}
 a,a:active,a:focus,a:hover,a:visited {text-decoration: none}
 /*@input*/
 input[type=password],
@@ -20,4 +21,5 @@ ul, ol { list-style: none; }
 ::-moz-placeholder{ font-family: "Microsoft YaHei"}              
 ::-webkit-input-placeholder{ font-family: "Microsoft YaHei"}    
 ::-ms-input-placeholder{ font-family: "Microsoft YaHei"}
+
 

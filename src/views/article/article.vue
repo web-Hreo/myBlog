@@ -154,7 +154,7 @@ export default {
       padding: 10px;
       background-color: #fff;
       .el-tag{
-        cursor: pointer;
+        // cursor: pointer;
       }
       .label-list{
         flex-wrap: wrap;
@@ -166,7 +166,7 @@ export default {
         padding: 10px 20px;
         margin-top: 20px;
         background-color: #f5f5f5;
-        cursor: pointer;
+        // cursor: pointer;
         border-radius: 5px;
         transition: all .2s ease-in;
         letter-spacing: 1px;

@@ -38,7 +38,7 @@
 
 <script>
 import MyMenu from '@/components/Menu.vue'
-import {contList} from './index'
+import {contList} from './data'
 export default {
   name: 'navigation',
 
@@ -137,7 +137,7 @@ export default {
           box-sizing: border-box;
           padding: 15px 10px;
           margin-top: 10px;
-          cursor: pointer;
+          // cursor: pointer;
           p{
             transition: all .2s ease-in;
             &:nth-child(1){
