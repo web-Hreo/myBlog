@@ -31,6 +31,8 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
+  Timeline,
+  TimelineItem,
 } from 'element-ui'
 const element = {
   install(Vue) {
@@ -63,6 +65,8 @@ const element = {
     Vue.use(Dropdown);
     Vue.use(DropdownMenu);
     Vue.use(DropdownItem);
+    Vue.use(Timeline);
+    Vue.use(TimelineItem);
     Vue.prototype.$message = Message;
     Vue.prototype.$confirm = MessageBox.confirm;
     Vue.prototype.$loading = Loading.service;

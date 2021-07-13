@@ -6,14 +6,14 @@
     <div id="home">
       <el-row :gutter="20" class="home_cont">
         <!-- 左侧文章item -->
-        <el-col :xs="24" :sm="24" :md="17" :lg="17" class="home_cont_blog">
+        <el-col :xs="24" :sm="24" :md="24" :lg="24" class="home_cont_blog">
           <transition mode="out-in">
             <!-- 动画过渡跳转路由容器 -->
             <router-view v-cloak></router-view>
           </transition>
         </el-col>
         <!-- 右侧配置 -->
-        <el-col :span="7" class="home_cont_info hidden-sm-and-down">
+        <el-col v-if="isAslideShow" :span="7" class="home_cont_info hidden-sm-and-down">
           <aslide />
         </el-col>
       </el-row>
@@ -27,16 +27,28 @@
 import myHead from "./components/Header";
 import aslide from "./components/home/aslide";
 import myFooter from "./components/footer";
+import  './assets/common/global.less'
 export default {
   data() {
     return {
-      num: 1
+      num: 1,
+      isAslideShow:true//右侧信息是否展示 默认是
     };
   },
   components: {
     myHead,
     aslide,
     myFooter
+  },
+  watch:{
+    $route(val){
+      console.log(val);
+        if(val.path==='/navigation' || val.path==='/article'){
+          this.isAslideShow  = false
+        }else{
+          this.isAslideShow  = true
+        }
+    }
   }
 };
 </script>
@@ -59,6 +71,9 @@ export default {
     .home_cont_info {
       height: 100%;
       overflow: hidden;
+    }
+    .home_cont_blog{
+      min-height: calc(100vh - 172px);
     }
   }
 }

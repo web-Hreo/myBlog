@@ -5,12 +5,12 @@
       <div class="my_background"></div>
       <div class="my_headpic">
         <img
-          src="http://b-ssl.duitang.com/uploads/item/201601/19/20160119171650_XLAfs.thumb.700_0.jpeg"
+          src="@/assets/common/avatar.jpg"
           alt
         />
       </div>
       <div class="my_information">
-        <p>Hhua | 花未央</p>
+        <p>Hhua | 何华</p>
         <p>web前端开发工程师</p>
         <p>邮箱：ngpeipao9977590@163.com</p>
         <p>微信(添加备注来源)：17779168734</p>
@@ -48,7 +48,7 @@
           <p class="item_title">小程序插件</p>
           <div class="item_text">
             <div class="item_img">
-              <img src="https://img.cdn.lsyblog.com/0a6ce05fe0c69d1c2b7514395e7d61b7.jpg" alt />
+              <img src="https://www.yxiaowei.com/Public/upload/article_banner/2019/12-30/5e09c45564d98.jpg" alt />
             </div>
             <div class="item_desc">
               <p>一款超好用的插件——WxParse，在解析内容的时候就需要将内容中的HTML标签转换成微信小程序所支持</p>
