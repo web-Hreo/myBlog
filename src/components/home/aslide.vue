@@ -2,23 +2,22 @@
   <div id="aslide">
     <!-- 个人信息 -->
     <div class="info_my background">
-      <div class="my_background"></div>
-      <div class="my_headpic">
-        <img
-          src="@/assets/common/avatar.jpg"
-          alt
-        />
-      </div>
+      <img src="@/assets/common/avatar.jpg" alt />
       <div class="my_information">
         <p>Hhua | 何华</p>
         <p>web前端开发工程师</p>
-        <p>邮箱：ngpeipao9977590@163.com</p>
-        <p>微信(添加备注来源)：17779168734</p>
-        <p>爱代码、爱吉他、爱民谣的97伪文艺程序猿一枚，分享一些个人开发之路上踩的各种坑，只为后来人更好的行走。</p>
+        <!-- <p>邮箱：ngpeipao9977590@163.com</p>
+        <p>微信(添加备注来源)：17779168734</p> -->
+        <p>一切皆可期，一切皆所能</p>
       </div>
+      <ul class="my_article fbc">
+        <li><p>文章</p><p>80</p></li>
+        <li><p>标签</p><p>80</p></li>
+        <li><p>分类</p><p>80</p></li>
+      </ul>
     </div>
     <!-- 天气 -->
-    <div class="background info_weather" v-if="Weather">
+    <div class="info_weather background" v-if="Weather">
       <p>您的位置 -> {{Weather.address}}</p>
       <!-- {{Weather.basic.update.loc}} -->
       <p>{{Weather.time}}</p>
@@ -144,6 +143,10 @@ export default {
   padding: 15px 10px;
   background-color: #fff;
   border-radius: 5px;
+  transition: all .3s ;
+  &:hover{
+    box-shadow: 0 0 10px 5px rgb(223, 223, 223);
+  }
   .info_title {
     color: #000;
     font-size: 18px;
@@ -166,34 +169,21 @@ export default {
 }
 .info_my {
   position: relative;
-  padding: 0 !important;
-  .my_background {
-    height: 200px;
-    filter: blur(5px);
-    background-image: url("http://b-ssl.duitang.com/uploads/item/201601/19/20160119171650_XLAfs.thumb.700_0.jpeg");
-    background-size: 100% 120%;
-    background-position: center;
-  }
-  .my_headpic {
-    position: absolute;
-    width: 100%;
-    top: 150px;
-    left: 50%;
-    img {
-      transform: translateX(-50%);
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-    }
+  // padding: 0 !important;
+  img {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
   }
   .my_information {
-    margin-top: 60px;
     padding: 15px 10px;
     p {
       text-align: center;
+      letter-spacing: 2px;
       &:nth-child(1) {
         color: #3f3f3f;
-        font-weight: bold;
+        letter-spacing: 1px;
         font-size: 16px;
         margin-bottom: 10px;
       }
@@ -201,18 +191,17 @@ export default {
         color: #1abc9c;
         padding: 5px 0;
       }
-      &:nth-child(3),
-      &:nth-child(4) {
-        font-size: 14px;
-        padding: 2px 0;
-        color: #555;
-      }
-      &:nth-child(5) {
-        padding: 5px;
-        font-size: 14px;
-        text-align: left;
-        text-decoration: none;
-        color: rgb(170, 169, 159);
+    }
+  }
+  .my_article{
+    padding: 10px 20px;
+    text-align: center;
+    li{
+      p{
+        &:nth-child(2){
+          font-size: 20px;
+          padding-top: 5px;
+        }
       }
     }
   }
@@ -237,7 +226,7 @@ export default {
       height: 30px;
       line-height: 30px;
       background-color: #40c057;
-      padding-bottom: 5px;
+      border-radius: 5px;
     }
   }
 }

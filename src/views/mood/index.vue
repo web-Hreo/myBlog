@@ -49,5 +49,7 @@ export default {
 
 </script>
 <style lang='less' scoped>
-
+/deep/.el-card__body{
+  background-color: #F6F6F6;
+}
 </style>

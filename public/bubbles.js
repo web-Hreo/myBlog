@@ -1,7 +1,63 @@
 onload = function() {
   var click_cnt = 0;
+  var WIDTH = document.documentElement.clientWidth;
+  var HEIGHT = document.documentElement.clientHeight;
   var $html = document.getElementsByTagName("html")[0];
   var $body = document.getElementsByTagName("body")[0];
+  var $canvas = document.createElement("canvas"),
+  
+  content = $canvas.getContext('2d'),
+  round = [],
+  initRoundPopulation = 80;
+  $canvas.width = WIDTH;
+  $canvas.height = HEIGHT;
+  $canvas.style.position = "fixed";
+  $canvas.style.top = "0";
+  $canvas.style.left = "0";
+  $canvas.style.zIndex = "-20";
+  function box(index, x, y) {
+    this.index = index;
+    this.x = x;
+    this.y = y;
+    this.r = Math.random() * 5 + 1;
+    var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
+    this.color = "rgba(220,20,60," + alpha + ")";
+  }
+
+  box.prototype.draw = function () {
+    content.fillStyle = this.color;
+    content.shadowBlur = this.r * 2;
+    content.beginPath();
+    content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+    content.closePath();
+    content.fill();
+  };
+
+  function animate() {
+    content.clearRect(0, 0, WIDTH, HEIGHT);
+    for (var i in round) {
+      round[i].move();
+    }
+    requestAnimationFrame(animate)
+  }
+
+  box.prototype.move = function () {
+    this.y -= 0.30;   //  上升移动速度
+    if (this.y <= -10) {
+      this.y = HEIGHT + 10;
+    }
+    this.draw();
+  };
+
+  function init() {
+    for (var i = 0; i < initRoundPopulation; i++) {
+      round[i] = new box(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+      round[i].draw();
+    }
+    $body.appendChild($canvas);
+    animate();
+  }
+  init();
   $html.onclick = function(e) {
       var $elem = document.createElement("b");
       var hex = Math.floor(Math.random() * 16777216).toString(16); //生成ffffff以内16进制数
@@ -72,4 +128,5 @@ onload = function() {
       }, 70);
       $body.appendChild($elem);
   };
+
 };

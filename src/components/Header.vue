@@ -1,17 +1,17 @@
 <template>
   <div id="head">
     <div id="head_cont">
-      <el-row class="head_cont">
-        <el-col :span="8">
+      <el-row class="head_cont fbc">
+        <!-- <el-col :span="8">
           <div class="grid-content bg-purple">
             <div class="head_img">
               <img src="../assets/head/logo.png" alt />
             </div>
           </div>
-        </el-col>
-        <el-col :span="16" class="head_nav">
+        </el-col> -->
+        <el-col  class="head_nav">
           <div class="grid-content bg-purple">
-            <ul class="hidden-xs-only">
+            <ul class="hidden-xs-only fc">
               <li v-for="item in routerList" :key="item.id">
                 <router-link :to="item.path" :class="{active:$route.path==item.path}">{{item.name}}</router-link>
               </li>
@@ -29,6 +29,11 @@
             </el-dropdown>
           </div>
         </el-col>
+        <el-col class="head_search fec">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -42,11 +47,11 @@ export default {
       routerList: [
         { name: "首页", id: 1, path: "/index" },
         // { name: "学无止境", id: 2, path: "/style" },
-        { name: "文章档案", id: 3, path: "/article" },
-        { name: "学习导航", id: 4, path: "/navigation" },
-        { name: "热度榜", id: 5, path: "/hot" },
-        { name: "每日心情", id: 2, path: "/mood" },
-        { name: "我的朋友", id: 6, path: "#" },
+        { name: "归档", id: 3, path: "/article" },
+        { name: "资源", id: 4, path: "/navigation" },
+        { name: "热榜", id: 5, path: "/hot" },
+        { name: "日志", id: 2, path: "/mood" },
+        { name: "友链", id: 6, path: "#" },
         { name: "关于", id: 7, path: "#" }
       ],
     };
@@ -69,8 +74,10 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff;
   overflow: hidden;
+  background-color: rgba(255,255,255,0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   #head_cont {
     max-width: 1200px;
     min-width: 320px;
@@ -95,25 +102,40 @@ export default {
     max-width: 600px;
     ul {
       height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       li {
         text-align: center;
-        height: 40px;
-        line-height: 40px;
-        border-bottom: 2px solid #fff;
+        height: 80px;
+        line-height: 80px;
+        // border-bottom: 2px solid #fff;
         a {
           color: #555;
           display: inline-block;
-          padding: 0 5px;
+          padding: 0 7px;
           width: 100%;
           height: 100%;
         }
       }
       .active {
         color: #000;
-        border-bottom: 2px solid #000;
+        // border-bottom: 2px solid #000;
+      }
+    }
+  }
+  .head_search{
+    div{
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 5PX;
+      transition: all .2s;
+      &:hover{
+        background-color: #000;
+        color: #fff;
       }
     }
   }

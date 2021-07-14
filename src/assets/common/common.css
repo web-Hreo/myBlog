@@ -1,7 +1,15 @@
 *{ margin:0; padding:0;}
-html,body{ cursor: url('../mouse.png'),auto;}
+html,body{
+  cursor: url('../mouse.png'),auto;
+  font-family: 'Mirages Custom', 'Merriweather', 'Open Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', 'WenQuanYi Micro Hei',  'Segoe UI Emoji', 'Segoe UI Symbol', Helvetica, Arial, sans-serif;
+}
+body {
+  background: #0cebeb;
+  background: -webkit-linear-gradient(to right, #FEF3EB, #F2F0F7, #F0F8F3);
+  background: linear-gradient(to right, #FEF3EB, #F2F0F7, #F0F8F3);
+}
 address,cite,dfn,em,var, i {font-style:normal;}
-#app { font: 16px "微软雅黑", Arial, Helvetica, sans-serif; color: #555; background: #f7f7f7;  }
+#app { font: 16px "微软雅黑", Arial, Helvetica, sans-serif; color: #555;  }
 table { border-collapse:collapse; border-spacing:0; }
 h1, h2, h3, h4, h5, h6, th { font-size: 100%; font-weight: normal; }
 button,input,select,textarea{font-size:100%;}
