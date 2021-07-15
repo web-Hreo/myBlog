@@ -70,7 +70,7 @@ export default {
         { name: "热榜", id: 5, path: "/hot" },
         { name: "日志", id: 6, path: "/mood" },
         { name: "友链", id: 7, path: "/links" },
-        { name: "留言", id: 8, path: "#" },
+        { name: "留言", id: 8, path: "/message" },
         { name: "更多", id: 9, path: "#",
           children:[
             { name: "关于我", id: 10, path: "/aboutMe"},

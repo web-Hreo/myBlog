@@ -44,12 +44,12 @@
       <p class="info_title">热度榜</p>
       <div class="rankingList_item" v-for="(item, index) in [1,2]" :key="index">
         <a href>
-          <p class="item_title">小程序插件</p>
-          <div class="item_text">
+          <p class="item_title text-eli-1">小程序插件</p>
+          <div class="item_text fbc">
             <div class="item_img">
               <img src="https://www.yxiaowei.com/Public/upload/article_banner/2019/12-30/5e09c45564d98.jpg" alt />
             </div>
-            <div class="item_desc">
+            <div class="item_desc text-eli-3">
               <p>一款超好用的插件——WxParse，在解析内容的时候就需要将内容中的HTML标签转换成微信小程序所支持</p>
             </div>
           </div>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <!-- 友情链接 -->
-    <div class="info_friendChain background">
+    <!-- <div class="info_friendChain background">
       <p class="info_title">
         友情链接
         <a href>申请友链</a>
@@ -70,7 +70,7 @@
           <span style="color:red">注：</span> 申请友链之前，请务必先将本站添置友链，花未央收到后会立马处理，处理结果会以邮件形式通知您~
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -269,6 +269,7 @@ export default {
     .item_title {
       padding: 5px 0;
       font-size: 14px;
+      letter-spacing: 1px;
       font-weight: 600;
     }
     .item_text {
@@ -278,21 +279,14 @@ export default {
         width: 100%;
         img {
           width: 100%;
-          height: 160px;
           transition: all ease 0.6s;
         }
       }
       .item_desc {
+        letter-spacing: 1px;
         margin: 5px;
         font-size: 14px;
-        text-indent: 2em;
-        text-overflow: -o-ellipsis-lastline;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        -webkit-box-orient: vertical;
+        word-break: break-all;
       }
     }
   }
