@@ -30,7 +30,7 @@ export default {
   font-size: 12px;
 
   width: 100%;
-  background: #333;
+  background: transparent;
   color: #a5a4a4;
   text-align: center;
   padding: 20px 0;

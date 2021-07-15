@@ -13,6 +13,7 @@ const routes = [
   { path: '/links', component: () => import('@/views/links/index'), meta: { title: "何华前端博客_友情链接" }, },
   { path: '/navigation', component: () => import('@/views/navigation/index'), meta: { title: "何华前端博客_学习导航" }, },
   { path: '/aboutMe', component: () => import('../views/about/about_me'), meta: { title: "何华前端博客_关于我" }, },
+  { path: '/project', component: () => import('../views/about/project'), meta: { title: "何华前端博客_项目分享" }, },
 ]
 
 const router = new VueRouter({

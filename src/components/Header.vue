@@ -74,7 +74,7 @@ export default {
         { name: "更多", id: 9, path: "#",
           children:[
             { name: "关于我", id: 10, path: "/aboutMe"},
-            { name: "项目分享", id: 11, path: "/111",},
+            { name: "项目分享", id: 11, path: "/project",},
             { name: "学习资源", id: 12, path: "/navigation",},
           ]
         }
