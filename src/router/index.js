@@ -10,7 +10,9 @@ const routes = [
   { path: '/article', component: () => import('@/views/article/article'), meta: { title: "何华前端博客_学无止境" }, },
   { path: '/hot', component: () => import('@/views/hot/index'), meta: { title: "何华前端博客_热度榜" }, },
   { path: '/mood', component: () => import('@/views/mood/index'), meta: { title: "何华前端博客_每日心情" }, },
+  { path: '/links', component: () => import('@/views/links/index'), meta: { title: "何华前端博客_友情链接" }, },
   { path: '/navigation', component: () => import('@/views/navigation/index'), meta: { title: "何华前端博客_学习导航" }, },
+  { path: '/aboutMe', component: () => import('../views/about/about_me'), meta: { title: "何华前端博客_关于我" }, },
 ]
 
 const router = new VueRouter({
