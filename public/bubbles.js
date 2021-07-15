@@ -42,7 +42,7 @@ onload = function() {
   }
 
   box.prototype.move = function () {
-    this.y -= 0.30;   //  上升移动速度
+    this.y -= 1;   //  上升移动速度
     if (this.y <= -10) {
       this.y = HEIGHT + 10;
     }
@@ -67,7 +67,7 @@ onload = function() {
       $elem.style.color = `#${hex}`;
       $elem.style.zIndex = 9999;
       $elem.style.position = "absolute";
-      $elem.style.select = "none";
+      $elem.style.userSelect = "none";
       var x = e.pageX;
       var y = e.pageY;
       $elem.style.left = (x - 10) + "px";
