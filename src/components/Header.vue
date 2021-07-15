@@ -64,7 +64,7 @@ export default {
           name: "归档", id: 2, path: "#",isActive:true,
           children:[
             { name: "文章归档", id: 3, path: "/article"},
-            { name: "文章标签", id: 4, path: "/111",}
+            { name: "文章标签", id: 4, path: "/tags",}
           ]
         },
         { name: "热榜", id: 5, path: "/hot" },

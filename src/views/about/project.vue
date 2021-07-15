@@ -8,14 +8,23 @@
 <template>
   <div id='project'>
     <div class="note warning no-icon" style="">本站项目由博主工作以来开发的项目，仅为记录及参考使用</div>
-    <div class="linkeBox">
-      <li class="link-item" :class="{'link-item-hover':item.href !=='#'}" v-for="item in linkList" :key="item.id">
+      <el-row class="linkeBox" :gutter="10">
+        <el-col :xs="24" :sm="12" :md="12"  v-for="item in linkList" :key="item.id">
+          <div class="link-item" :class="{'link-item-hover':item.href !=='#'}" >
+            <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
+              <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
+              <p class="linkdes">{{item.title}}</p>
+            </a>
+          </div>
+        </el-col>
+      <!-- <li class="link-item" :class="{'link-item-hover':item.href !=='#'}" v-for="item in linkList" :key="item.id">
         <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
         <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
         <div class="linkdes">{{item.title}}</div>
         </a>
-      </li>
-    </div>
+      </li> -->
+      </el-row>
+
   </div>
 </template>
 
@@ -28,10 +37,10 @@ export default {
   data () {
     return {
       linkList:[
-        { id:1,name:'智工建智慧工地云平台-企业端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://company.libawall.com' },
-        { id:2,name:'智工建智慧工地云平台-项目端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://project.libawall.com' },
+        { id:1,name:'智工建-企业端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://company.libawall.com' },
+        { id:2,name:'智工建-项目端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://project.libawall.com' },
         { id:3,name:'智工建工人端',title:'此端口为微信小程序 微信搜索打开',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'#' },
-        { id:4,name:'智工建智慧工地云平台-官网',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://www.zjgong.com/' },
+        { id:4,name:'智工建-官网',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://www.zjgong.com/' },
         { id:5,name:'景同舟-用户端',title:'此端口为微信H5 微信浏览器打开最优',imgSrc:'http://scenic.jtz.cn/logo.png',href:'https://i.jtz.cn' },
         { id:6,name:'景同舟-官网',title:'景同舟,整合国内众多优质大景区,推出景区大联盟年票产品,游客一票可无限次畅玩联盟景区',imgSrc:'http://testwww.jtz.cn/_nuxt/assets/image/layouts/logo.svg',href:'http://www.jtz.cn/' },
         { id:7,name:'篱笆墙人事管理平台',title:'为企业贯穿员工职业生涯的HRsaas服务共建信用体系',imgSrc:'https://hr.libawall.com/img/logo.7b68b222.svg',href:'https://hr.libawall.com' },
@@ -52,25 +61,8 @@ export default {
 
 </script>
 <style lang='less' scoped>
-.note.warning {
-    background-color: #fdf8ea;
-    border-left-color: #f0ad4e;
-}
-.note {
-    position: relative;
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: initial;
-    border-left: 3px solid #eee;
-    background-color: #f9f9f9;
-    border-radius: 3px;
-    font-size: var(--content-font-size);
-    width:100%;
-    font-size:19px;
-    font-family: cursive,Noto Serif SC,sans-serif;
-    margin: 30px 0 10px 0;
-}
+
+
 .linkeBox{
   margin: 0;
   list-style: none;
@@ -78,11 +70,11 @@ export default {
   width: 100%;
   display: inline-block;
   .link-item{
-    width: 42%;
-    float: left;
+    // width: 42%;
+    // float: left;
     border: 1px solid #ececec;
     padding: 10px 30px;
-    margin: 4px;
+    margin: 4px 0;
     position: relative;
     overflow: hidden;
     -webkit-transition: all .6s;
