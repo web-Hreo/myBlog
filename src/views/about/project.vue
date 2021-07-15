@@ -9,8 +9,8 @@
   <div id='project'>
     <div class="note warning no-icon" style="">本站项目由博主工作以来开发的项目，仅为记录及参考使用</div>
     <div class="linkeBox">
-      <li class="link-item link-item-dalao" v-for="item in linkList" :key="item.id">
-        <a class="link-item-inner effect-apollo" :href="item.href" :title="item.title" target="_blank" data-pjax-state="external">
+      <li class="link-item" :class="{'link-item-hover':item.href !=='#'}" v-for="item in linkList" :key="item.id">
+        <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
         <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
         <div class="linkdes">{{item.title}}</div>
         </a>
@@ -29,12 +29,15 @@ export default {
     return {
       linkList:[
         { id:1,name:'智工建智慧工地云平台-企业端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://company.libawall.com' },
-        { id:1,name:'智工建智慧工地云平台-项目端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://project.libawall.com' },
-        { id:2,name:'智工建智慧工地云平台-官网',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://www.zjgong.com/' },
-        { id:3,name:'景同舟-用户端',title:'此端口为微信H5 需要微信浏览器打开',imgSrc:'http://scenic.jtz.cn/logo.png',href:'https://i.jtz.cn' },
-        { id:4,name:'景同舟-官网',title:'景同舟,整合国内众多优质大景区,推出景区大联盟年票产品,游客一票可无限次畅玩联盟景区',imgSrc:'http://testwww.jtz.cn/_nuxt/assets/image/layouts/logo.svg',href:'http://www.jtz.cn/' },
-        { id:5,name:'篱笆墙人事管理平台',title:'为企业贯穿员工职业生涯的HRsaas服务共建信用体系',imgSrc:'https://hr.libawall.com/img/logo.7b68b222.svg',href:'https://hr.libawall.com' },
-        { id:6,name:'篱笆墙-官网',title:'为企业贯穿员工职业生涯的HRsaas服务共建信用体系',imgSrc:'https://hr.libawall.com/img/logo.7b68b222.svg',href:'https://www.libawall.com/' },
+        { id:2,name:'智工建智慧工地云平台-项目端',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://project.libawall.com' },
+        { id:3,name:'智工建工人端',title:'此端口为微信小程序 微信搜索打开',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'#' },
+        { id:4,name:'智工建智慧工地云平台-官网',title:'智工建专业从事开发智慧工地云平台,采用物联网、人工智能',imgSrc:'https://company.libawall.com/2021_7_13_1812/assets/logo.4d25621e.svg',href:'https://www.zjgong.com/' },
+        { id:5,name:'景同舟-用户端',title:'此端口为微信H5 微信浏览器打开最优',imgSrc:'http://scenic.jtz.cn/logo.png',href:'https://i.jtz.cn' },
+        { id:6,name:'景同舟-官网',title:'景同舟,整合国内众多优质大景区,推出景区大联盟年票产品,游客一票可无限次畅玩联盟景区',imgSrc:'http://testwww.jtz.cn/_nuxt/assets/image/layouts/logo.svg',href:'http://www.jtz.cn/' },
+        { id:7,name:'篱笆墙人事管理平台',title:'为企业贯穿员工职业生涯的HRsaas服务共建信用体系',imgSrc:'https://hr.libawall.com/img/logo.7b68b222.svg',href:'https://hr.libawall.com' },
+        { id:8,name:'篱笆墙-官网',title:'为企业贯穿员工职业生涯的HRsaas服务共建信用体系',imgSrc:'https://hr.libawall.com/img/logo.7b68b222.svg',href:'https://www.libawall.com/' },
+        { id:9,name:'石猫-e网通-PC/H5',title:'为石材企业打造全面saas服务',imgSrc:'http://file.market.xiaomi.com/thumbnail/PNG/l114/AppStore/0d26064d83cd34bf80e779957469c9a0b99b0b5fb',href:'http://qy.stonetmall.com' },
+        { id:10,name:'石猫-e网通-小程序',title:'公司小程序作为总控模板 无法搜索',imgSrc:'http://file.market.xiaomi.com/thumbnail/PNG/l114/AppStore/0d26064d83cd34bf80e779957469c9a0b99b0b5fb',href:'#' },
       ]
     }
   },
@@ -138,6 +141,12 @@ export default {
       -webkit-transition: all .5s;
       transition: all .5s;
     }
+    
   }
+  // .link-item-hover{
+  //   &:hover{
+  //     box-shadow:0 0 7px 5px #d1d1d1;
+  //   }
+  // }
 }
 </style>

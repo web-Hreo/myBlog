@@ -9,7 +9,7 @@
   <div id='article'>
     <div class="article-box mt-15">
       <el-row >
-        <el-col :span="6" class="article-menu">
+        <!-- <el-col :span="6" class="article-menu">
           <el-menu
             :default-active="menuActive"
             @select="select"
@@ -24,18 +24,30 @@
               <span slot="title">文章归档</span>
             </el-menu-item>
           </el-menu>
-        </el-col>
-        <el-col :xs="24" :sm="24" :md="24" :lg="24" class="article-cont">
-          <ul class="label-list fbc" v-if="menuActive==='1'">
+        </el-col> -->
+        <div class="article-cont">
+          <!-- <ul class="label-list fbc" v-if="menuActive==='1'">
             <li class="label-item fbc" v-for="(item, index) in labelList" :key="index">
               <p>{{item.label}}</p>
               <p>文章数( 100 )</p>
             </li>
-          </ul>
-          <div class="article-list" v-else>
+          </ul> -->
+          <div class="article-list">
             <div v-for="(item,index) in articleList" :key="index" class="list-item">
-              <h3>FROM: {{ item.date }}</h3>
-              <ul class="list-ul">
+              <h3>{{ item.date }}</h3>
+              <div  v-for="(MIt,MIn) in item.list" :key="MIn">
+                <h4>{{MIt.date}}</h4>
+                <ul class="list-ul">
+                  <li v-for="(DIt, DIn) in MIt.list" :key="DIn">
+                    <p>
+                      <span class="list-date">{{ DIt.date }}</span>
+                      <a href="" class="list-name">{{ DIt.name }}</a>
+                      <!-- <span class="list-num">{{ DIt.num }}次浏览</span> -->
+                    </p>
+                  </li>
+                </ul> 
+              </div>
+              <!-- <ul class="list-ul">
                 <li v-for="(it, index) in item.list" :key="index">
                   <p>
                     <span class="list-date">{{ it.date }}</span>
@@ -43,10 +55,10 @@
                     <span class="list-num">{{ it.num }}次浏览</span>
                   </p>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </div>
-        </el-col>
+        </div>
       </el-row>
     </div>
 
@@ -82,42 +94,47 @@ export default {
         {
           date:'2021',
           list:[
-            { id:1,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'08/11' },
-            { id:3,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:4,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'08/11' },
-            { id:5,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:6,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'08/11' },
-            { id:7,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:8,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'08/11' }
+            {
+              date:'2021-12',
+              list:[
+                { id:1,name:'js一些操作运算符',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+              ]
+            }
           ]
         },
         {
-          date:'2020',
+          date:'2021',
           list:[
-            { id:1,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:2,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:3,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:4,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:5,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:6,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:7,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:8,name:'js一些操作运算符',num:100,date:'08/11' }
+            {
+              date:'2021-12',
+              list:[
+                { id:1,name:'js一些操作运算符',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+              ]
+            }
           ]
         },
         {
-          date:'2020',
+          date:'2021',
           list:[
-            { id:1,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:2,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:3,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:4,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:5,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:6,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:7,name:'js一些操作运算符',num:100,date:'08/11' },
-            { id:8,name:'js一些操作运算符',num:100,date:'08/11' }
+            {
+              date:'2021-12',
+              list:[
+                { id:1,name:'js一些操作运算符',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+                { id:2,name:'decodeURIComponent在解析浏览器参数中含有%时报错处理',num:100,date:'2020-08-07' },
+              ]
+            }
           ]
-        }
+        },
+   
       ]
     }
   },
@@ -139,6 +156,8 @@ export default {
   #article{
     width: 100%;
     padding-bottom: 20px;
+    font-family: Product Sans !important;
+    letter-spacing: 1px;
     .article-box{
 
     }
@@ -150,9 +169,10 @@ export default {
       }
     }
     .article-cont{
+      width: 100%;
       box-sizing: border-box;
-      padding: 10px;
-      background-color: #fff;
+      padding: 30px;
+      // background-color: #fff;
       .el-tag{
         // cursor: pointer;
       }
@@ -181,23 +201,47 @@ export default {
       }
     }
     .list-item{
+      // padding: 30px 10px 40px;
+      padding: 30px;
+      border-left: none;
+      box-shadow: none;
+      margin-top: -10px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      border-radius: 10px;
       h3{
         padding: 10px 0;
-        font-size: 18px;
+        font-size: 30px;
+        margin: 0;
+        line-height: 1.5;
+        font-family: Product Sans !important;
+        font-weight: 600 !important;
+        letter-spacing: .5px;
+      }
+      h4{
+        font-size: 22px;
       }
     }
     .list-ul{
-      margin-left: 20px;
-      list-style-type: disc;
+      // list-style-type: disc;
       li{
         padding: 5px 0;
+        margin: 10px 0;
         .list-date{
-          margin-right: 8px;
-          color: #666;
-          font-size: 13px;
-        }
+          margin: 12px 0 10px;
+          font-size: 15px;
+          color: #615b5b;
+          background: #f1f2f3;
+          border-radius: 4px;
+          font-size: 14px;
+          padding: 3px 5px 3px 7px;
+          background: #f1f2f3;
+          border-radius: 4px;
+          font-style: normal;
+          margin-right: 10px;
+              }
         .list-name{
-          color: #3d658d;
+          // color: #3d658d;
           text-decoration: none
         }
         .list-num{

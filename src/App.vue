@@ -42,11 +42,11 @@ export default {
   },
   watch:{
     $route(val){
-        if(val.path==='/navigation' || val.path==='/article'){
-          this.isAslideShow  = false
-        }else{
-          this.isAslideShow  = true
-        }
+        // if(val.path==='/navigation' || val.path==='/article'){
+        //   this.isAslideShow  = false
+        // }else{
+        //   this.isAslideShow  = true
+        // }
     }
   }
 };
