@@ -138,7 +138,7 @@ export default {
         line-height: 80px;
         // border-bottom: 2px solid #fff;
         a {
-          font-size: 15px;
+          font-size: 16.8px;
           color: #555;
           display: inline-block;
           padding: 0 7px;

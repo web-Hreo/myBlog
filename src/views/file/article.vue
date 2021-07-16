@@ -6,8 +6,8 @@
   @changeDate: ,
 -->
 <template>
-  <div id='article'>
-    <div class="article-box mt-15">
+  <div id='article' class="pt-25">
+    <div class="article-box ">
       <el-row >
         <!-- <el-col :span="6" class="article-menu">
           <el-menu
@@ -171,7 +171,7 @@ export default {
     .article-cont{
       width: 100%;
       box-sizing: border-box;
-      padding: 30px;
+      // padding: 30px;
       // background-color: #fff;
       .el-tag{
         // cursor: pointer;
