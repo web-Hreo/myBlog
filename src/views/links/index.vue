@@ -7,34 +7,29 @@
 -->
 <template>
   <div id='links'>
-    <div class="note warning no-icon" style="">🌸 大佬 —— 没有不劳而获的工作，更没有坐享其成的收获</div>
-    <div class="linkeBox">
-      <li class="link-item link-item-dalao" v-for="item in linkList" :key="item.id">
-        <a class="link-item-inner effect-apollo" :href="item.href" :title="item.title" target="_blank" data-pjax-state="external">
-        <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
-        <div class="linkdes">{{item.title}}</div>
-        </a>
-      </li>
+    <div class="note warning no-icon" style="">常客 —— 没有不劳而获的工作，更没有坐享其成的收获</div>
+    <el-row class="linkeBox" :gutter="10">
+      <el-col :xs="24" :sm="12" :md="8"  v-for="item in linkList" :key="item.id">
+        <div class="link-item" :class="{'link-item-hover':item.href !=='#'}" >
+          <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
+            <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
+            <p class="linkdes">{{item.title}}</p>
+          </a>
+        </div>
+      </el-col>
+    </el-row>
+    <div class="note warning no-icon" style="">失联 —— 黎耀辉 好久不见</div>
+    <el-row class="linkeBox" :gutter="10">
+      <el-col :xs="24" :sm="12" :md="8"  v-for="item in linkList" :key="item.id">
+        <div class="link-item" :class="{'link-item-hover':item.href !=='#'}" >
+          <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
+            <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
+            <p class="linkdes">{{item.title}}</p>
+          </a>
+        </div>
+      </el-col>
+    </el-row>
     </div>
-    <div class="note warning no-icon" style="">🌸 大佬 —— 没有不劳而获的工作，更没有坐享其成的收获</div>
-    <div class="linkeBox">
-      <li class="link-item link-item-dalao" v-for="item in linkList" :key="item.id">
-        <a class="link-item-inner effect-apollo" :href="item.href" :title="item.title" target="_blank" data-pjax-state="external">
-        <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
-        <div class="linkdes">{{item.title}}</div>
-        </a>
-      </li>
-    </div>
-    <div class="note warning no-icon" style="">🌸 大佬 —— 没有不劳而获的工作，更没有坐享其成的收获</div>
-    <div class="linkeBox">
-      <li class="link-item link-item-dalao" v-for="item in linkList" :key="item.id">
-        <a class="link-item-inner effect-apollo" :href="item.href" :title="item.title" target="_blank" data-pjax-state="external">
-        <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
-        <div class="linkdes">{{item.title}}</div>
-        </a>
-      </li>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -68,25 +63,6 @@ export default {
 
 </script>
 <style lang='less' scoped>
-.note.warning {
-    background-color: #fdf8ea;
-    border-left-color: #f0ad4e;
-}
-.note {
-    position: relative;
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: initial;
-    border-left: 3px solid #eee;
-    background-color: #f9f9f9;
-    border-radius: 3px;
-    font-size: var(--content-font-size);
-    width:100%;
-    font-size:19px;
-    font-family: cursive,Noto Serif SC,sans-serif;
-    margin: 30px 0 10px 0;
-}
 .linkeBox{
   margin: 0;
   list-style: none;
@@ -94,17 +70,16 @@ export default {
   width: 100%;
   display: inline-block;
   .link-item{
-    width: 24%;
-    float: left;
     border: 1px solid #ececec;
     padding: 10px 30px;
-    margin: 4px;
+    margin: 4px 0;
     position: relative;
     overflow: hidden;
     -webkit-transition: all .6s;
     transition: all .6s;
     border-radius: 10px;
     background-color: #fff;
+    transition: all .2s ease-in;
     a{
       color: var(--base-color);
       text-decoration: none;

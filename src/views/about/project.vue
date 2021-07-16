@@ -17,14 +17,7 @@
             </a>
           </div>
         </el-col>
-      <!-- <li class="link-item" :class="{'link-item-hover':item.href !=='#'}" v-for="item in linkList" :key="item.id">
-        <a :href="item.href==='#'?'javascript:void(0);':item.href" :title="item.title" :target="item.href==='#'?'_self':'_blank'" data-pjax-state="external">
-        <img :src="item.imgSrc"><span class="sitename">{{item.name}}</span>
-        <div class="linkdes">{{item.title}}</div>
-        </a>
-      </li> -->
       </el-row>
-
   </div>
 </template>
 
