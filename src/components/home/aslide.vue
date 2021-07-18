@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { apiAddress, weather } from "../../axios/api.js"; //引入api
+// import { apiAddress, weather } from "../../axios/api.js"; //引入api
 export default {
   data() {
     return {
@@ -99,7 +99,8 @@ export default {
     };
   },
   created() {
-    this.getdata();
+    console.log('aslide created');
+    // this.getdata();
   },
   methods: {
     //在getdata内调用所有方法

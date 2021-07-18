@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       routerList: [
-        { name: "首页", id: 1, path: "/index" },
+        { name: "首页", id: 1, path: "/" },
         // { name: "学无止境", id: 2, path: "/style" },
         { 
           name: "归档", id: 2, path: "#",isActive:true,

@@ -12,6 +12,7 @@
 <script>
 //引入文章组件
 import myList from "@/components/home/list";
+import {getJson,setPerson,getPerson,update,deletePer} from '@/axios/api'
 export default {
   name: "",
   data() {
@@ -56,12 +57,55 @@ export default {
       ]
     };
   },
+
+  created(){
+    console.log('请求成功 created');
+    this.getJson()
+    // this.setPerson() 
+    // this.getPerson()
+    // this.update()
+    this.deletePer()
+  },
   methods: {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
+    },
+    async getJson(){
+      const {data} = await getJson()
+      console.log(data);
+    },
+
+    async setPerson(){
+      const params ={
+        name:'李四',
+        age:10
+      }
+      const data = await setPerson(params)
+      console.log(data);
+    },
+
+    async getPerson(){
+      const data = await getPerson()
+      console.log(data);
+    },
+
+    async update(){
+      const params ={
+        name:'李四-222222222222',
+        age:1022222,
+        _id:'60f1b8090a332d1b5cd32c69'
+      }
+      const data = await update(params)
+      console.log(data);
+      await this.getPerson()
+    },
+
+    async deletePer(){
+      const data = await deletePer({_id:'60f1b7e70a332d1b5cd32c63'})
+      console.log(data);
+      await this.getPerson()
     }
   },
-  created() {},
   components: {
     myList
   }
